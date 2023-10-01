@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>Employee Compensation Info</title>
+</head>
+
+<body>
+    <form  method="POST">
+        {% csrf_token %}
+        <label for="Employee Identifier">Employee Identifier: </label>
+        <input type="text" name="empid" required>
+        <input type="submit">
+    </form>
+    {% if graph %}
+    {{ graph|safe }}
+    {% else %}
+    <p>No Data Found.</p>
+    {% endif %}
+</body>
+
+</html>
